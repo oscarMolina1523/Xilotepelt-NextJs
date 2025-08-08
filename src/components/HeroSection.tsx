@@ -1,6 +1,6 @@
 
 import { ChevronDown } from 'lucide-react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useRouter} from 'next/router';
 
 interface HeroSectionProps {
   title: string;
@@ -9,8 +9,7 @@ interface HeroSectionProps {
 }
 
 const HeroSection = ({ title, subtitle, backgroundImage }: HeroSectionProps) => {
-  const navigate = useNavigate();
-  const location = useLocation();
+  const router = useRouter();
   
   const handleScrollDown = () => {
     const nextSection = document.querySelector('#teams-section');
@@ -21,20 +20,21 @@ const HeroSection = ({ title, subtitle, backgroundImage }: HeroSectionProps) => 
 
   const handleDiscoverMore = () => {
     // If we're already on the homepage, just scroll
-    if (location.pathname === '/') {
+    if (router.pathname === '/') {
       const aboutSection = document.querySelector('#teams-section');
       if (aboutSection) {
         aboutSection.scrollIntoView({ behavior: 'smooth' });
       }
     } else {
       // Navigate to homepage and then scroll
-      navigate('/');
-      setTimeout(() => {
-        const aboutSection = document.querySelector('#teams-section');
-        if (aboutSection) {
-          aboutSection.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
+      router.push('/').then(() => {
+        setTimeout(() => {
+          const aboutSection = document.querySelector('#teams-section');
+          if (aboutSection) {
+            aboutSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      });
     }
   };
 
