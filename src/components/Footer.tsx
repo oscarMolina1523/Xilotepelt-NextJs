@@ -1,6 +1,6 @@
 
 import { Facebook, Instagram, Mail, MapPin, Phone } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import  Link  from 'next/link';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -49,22 +49,22 @@ const Footer = () => {
             <h3 className="font-display text-lg font-semibold mb-4">Enlaces Rápidos</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-gray-300 hover:text-xilo-yellow transition-colors">Inicio</Link>
+                <Link href="/" className="text-gray-300 hover:text-xilo-yellow transition-colors">Inicio</Link>
               </li>
               <li>
-                <Link to="/club" className="text-gray-300 hover:text-xilo-yellow transition-colors">Sobre Nosotros</Link>
+                <Link href="/club" className="text-gray-300 hover:text-xilo-yellow transition-colors">Sobre Nosotros</Link>
               </li>
               <li>
-                <Link to="/equipos" className="text-gray-300 hover:text-xilo-yellow transition-colors">Equipos</Link>
+                <Link href="/equipos" className="text-gray-300 hover:text-xilo-yellow transition-colors">Equipos</Link>
               </li>
               <li>
-                <Link to="/staff" className="text-gray-300 hover:text-xilo-yellow transition-colors">Staff</Link>
+                <Link href="/staff" className="text-gray-300 hover:text-xilo-yellow transition-colors">Staff</Link>
               </li>
               <li>
-                <Link to="/logros" className="text-gray-300 hover:text-xilo-yellow transition-colors">Logros</Link>
+                <Link href="/logros" className="text-gray-300 hover:text-xilo-yellow transition-colors">Logros</Link>
               </li>
               <li>
-                <Link to="/contacto" className="text-gray-300 hover:text-xilo-yellow transition-colors">Contacto</Link>
+                <Link href="/contacto" className="text-gray-300 hover:text-xilo-yellow transition-colors">Contacto</Link>
               </li>
             </ul>
           </div>
@@ -74,22 +74,22 @@ const Footer = () => {
             <h3 className="font-display text-lg font-semibold mb-4">Categorías</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/equipos/masculino" className="text-gray-300 hover:text-xilo-yellow transition-colors">Masculino</Link>
+                <Link href="/equipos/masculino" className="text-gray-300 hover:text-xilo-yellow transition-colors">Masculino</Link>
               </li>
               <li>
-                <Link to="/equipos/femenino" className="text-gray-300 hover:text-xilo-yellow transition-colors">Femenino</Link>
+                <Link href="/equipos/femenino" className="text-gray-300 hover:text-xilo-yellow transition-colors">Femenino</Link>
               </li>
               <li>
-                <Link to="/equipos/sub-13" className="text-gray-300 hover:text-xilo-yellow transition-colors">Sub-13</Link>
+                <Link href="/equipos/sub-13" className="text-gray-300 hover:text-xilo-yellow transition-colors">Sub-13</Link>
               </li>
               <li>
-                <Link to="/equipos/sub-15" className="text-gray-300 hover:text-xilo-yellow transition-colors">Sub-15</Link>
+                <Link href="/equipos/sub-15" className="text-gray-300 hover:text-xilo-yellow transition-colors">Sub-15</Link>
               </li>
               <li>
-                <Link to="/equipos/sub-17" className="text-gray-300 hover:text-xilo-yellow transition-colors">Sub-17</Link>
+                <Link href="/equipos/sub-17" className="text-gray-300 hover:text-xilo-yellow transition-colors">Sub-17</Link>
               </li>
               <li>
-                <Link to="/equipos/mayores" className="text-gray-300 hover:text-xilo-yellow transition-colors">Mayores</Link>
+                <Link href="/equipos/mayores" className="text-gray-300 hover:text-xilo-yellow transition-colors">Mayores</Link>
               </li>
             </ul>
           </div>
