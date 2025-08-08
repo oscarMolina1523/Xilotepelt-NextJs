@@ -1,13 +1,12 @@
 import { ChevronDown, Menu, User, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/router';
 import { Button } from './ui/button';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,7 +25,7 @@ const Navbar = () => {
 
   const handleNavigation = (path: string) => {
     // If we're on the homepage and trying to navigate to a section
-    if (location.pathname === '/' && path.includes('#')) {
+    if (router.pathname === '/' && path.includes('#')) {
       const sectionId = path.split('#')[1];
       const element = document.getElementById(sectionId);
 
@@ -40,22 +39,23 @@ const Navbar = () => {
     // If we're not on homepage but trying to navigate to a section
     if (path.includes('#')) {
       const sectionId = path.split('#')[1];
-      navigate('/');
-      // We need to give the page time to render before scrolling
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          window.scrollTo({
-            top: element.offsetTop - 80, // Adjust for header height
-            behavior: 'smooth'
-          });
-        }
-      }, 100);
+      router.push('/').then(() => {
+        // We need to give the page time to render before scrolling
+        setTimeout(() => {
+          const element = document.getElementById(sectionId);
+          if (element) {
+            window.scrollTo({
+              top: element.offsetTop - 80, // Adjust for header height
+              behavior: 'smooth'
+            });
+          }
+        }, 100);
+      });
     } else {
       // Regular navigation to another page
-      if (path !== location.pathname) {
+      if (path !== router.pathname) {
         window.scrollTo(0, 0); // Scroll to top when navigating to new page
-        navigate(path);
+        router.push(path);
       }
     }
 
