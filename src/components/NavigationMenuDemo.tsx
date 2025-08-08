@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/router";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -18,12 +18,12 @@ interface NavigationMenuDemoProps {
 }
 
 export function NavigationMenuDemo({ scrolled = false }: NavigationMenuDemoProps) {
-  const navigate = useNavigate();
+  const router = useRouter();
   const isMobile = useIsMobile();
   const [open, setOpen] = useState(false);
 
   const handleNavigation = (path: string) => {
-    navigate(path);
+    router.push(path);
     setOpen(false);
   };
 
