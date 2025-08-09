@@ -1,14 +1,14 @@
-
+"use client";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter} from 'next/navigation';
 import { useTeams } from '@/contexts/TeamsContext';
 
 const TeamsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const navigate = useNavigate();
+  const router = useRouter();
   const { categories } = useTeams();
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const TeamsSection = () => {
 
   const handleCategoryClick = (slug: string) => {
     // Navigate to dedicated team page
-    navigate(`/equipos/${slug}`);
+    router.push(`/equipos/${slug}`);
   };
 
   return (

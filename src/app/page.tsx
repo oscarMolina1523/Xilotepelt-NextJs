@@ -1,3 +1,4 @@
+"use client";
 import AchievementsSection from "@/components/AchievementsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -5,7 +6,7 @@ import GallerySection from "@/components/GallerySection";
 import HeroSection from "@/components/HeroSection";
 import Navbar from "@/components/Navbar";
 import NextMatchCountdown from "@/components/NextMatchCountdown";
-import SeoHead from "@/components/SeoHead";
+// import SeoHead from "@/components/SeoHead";
 import SponsorsBanner from "@/components/SponsorsBanner";
 import TeamsSection from "@/components/TeamsSection";
 import { useScrollAnimation } from "@/utils/scrollAnimation";
@@ -36,7 +37,7 @@ export default function Home(){
 
   return (
     <div className="min-h-screen max-w-full overflow-x-hidden flex flex-col">
-      <SeoHead />
+      {/* <SeoHead /> */}
       <Navbar />
       
       <HeroSection 
