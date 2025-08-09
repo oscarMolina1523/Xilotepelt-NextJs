@@ -1,4 +1,4 @@
-import { TeamsProvider } from "@/contexts/TeamsContext";
+import './globals.css'
 
 export default function RootLayout({
   children,
@@ -8,7 +8,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <TeamsProvider>{children}</TeamsProvider>
+        {children}
       </body>
     </html>
   );
